@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.app-card-title {
+  font-weight: bold;
+}
+
+.app-card {
+  border-style: solid;
+  border-radius: 4px;
+  border-color: black;
+  margin: 2px;
+  padding: 5px;
+}
+
+.app-card-list {
+  width: 50%;
+}

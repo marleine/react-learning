@@ -2,6 +2,11 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+const cards = [{ key:1, title: 'one', content: 'one content' },
+{ key:2, title: 'two', content: 'two content' },
+{ key:3, title: 'three', content: 'three content' },
+{ key:4, title: 'four', content: 'four content' }];
+
 export function App() {
   const list = ['Marleine', 'Andrew'];
   const [index, setIndex] = React.useState(0);
@@ -15,26 +20,22 @@ export function App() {
   const changeValue = React.useCallback(() => {
     setCounterValue(undefined);
   }, []);
+
   return (
     <>
       <AppHeader title={name} />
       <button onClick={changeValue}>Change Value</button>
       <button onClick={onClickChangeName}> Change Name </button>
       {counterValue === undefined && <AppCounter onSubmit={setCounterValue} />}
-
+      <div className={"app-card-list"}>
+        {
+          cards.map(card => <Card key={card.key} title={card.title} content={card.content}/>)
+        }
+      </div>
       <div className="App">
         <header className="App-header">
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
+
+
         </header>
       </div>
     </>
@@ -70,4 +71,15 @@ function AppCounter(props: { onSubmit: (value: number) => void }) {
     <button onClick={onClickMinus}>-</button>
     <button onClick={onSubmit}>Submit</button>
   </>;
+}
+
+function Card(props: { title: string, content?: string }) {
+  return <div className={"app-card"}>
+    <div className={"app-card-title"}>
+      {props.title}
+    </div>
+    <div className={"app-card-content"}>
+      {props.content}
+    </div>
+  </div>;
 }
