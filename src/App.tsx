@@ -1,6 +1,4 @@
 import * as React from 'react';
-// import logo from './logo.svg';
-import './App.css';
 
 const cards = [{ key: 1, title: 'one', content: 'one content' },
 { key: 2, title: 'two', content: 'two content' },
